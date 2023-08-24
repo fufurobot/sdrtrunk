@@ -23,7 +23,7 @@ import java.text.SimpleDateFormat
  * Instructions for building/compiling the sdrtrunk application.
  *
  * Prerequisites:
- * Install and configure an OpenJDK version 19+ that includes the JavaFX modules (e.g. Bellsoft Liberica JDK)
+ * Install and configure an OpenJDK version 20 that includes the JavaFX modules (e.g. Bellsoft Liberica JDK)
  * - Optional: install and configure Gradle 7.6+
  *
  * Scenario 1: run the application via gradle command line from the source code root directory:
