@@ -28,9 +28,9 @@ import io.github.dsheirer.module.decode.p25.phase1.message.lc.motorola.LCMotorol
 import io.github.dsheirer.module.decode.p25.phase1.message.lc.motorola.LCMotorolaGroupRegroupAdd;
 import io.github.dsheirer.module.decode.p25.phase1.message.lc.motorola.LCMotorolaGroupRegroupVoiceChannelUpdate;
 import io.github.dsheirer.module.decode.p25.phase1.message.lc.motorola.LCMotorolaGroupRegroupVoiceChannelUser;
-import io.github.dsheirer.module.decode.p25.phase1.message.lc.motorola.LCMotorolaRadioReprogramHeader;
-import io.github.dsheirer.module.decode.p25.phase1.message.lc.motorola.LCMotorolaRadioReprogramRecord;
 import io.github.dsheirer.module.decode.p25.phase1.message.lc.motorola.LCMotorolaTalkComplete;
+import io.github.dsheirer.module.decode.p25.phase1.message.lc.motorola.LCMotorolaTalkerAliasDataBlock;
+import io.github.dsheirer.module.decode.p25.phase1.message.lc.motorola.LCMotorolaTalkerAliasHeader;
 import io.github.dsheirer.module.decode.p25.phase1.message.lc.motorola.LCMotorolaUnitGPS;
 import io.github.dsheirer.module.decode.p25.phase1.message.lc.motorola.LCMotorolaUnknownOpcode;
 import io.github.dsheirer.module.decode.p25.phase1.message.lc.standard.LCAdjacentSiteStatusBroadcast;
@@ -173,10 +173,10 @@ public class LinkControlWordFactory
                 return new LCMotorolaGroupRegroupVoiceChannelUpdate(message);
             case MOTOROLA_UNIT_GPS:
                 return new LCMotorolaUnitGPS(message);
-            case MOTOROLA_RADIO_REPROGRAM_HEADER:
-                return new LCMotorolaRadioReprogramHeader(message);
-            case MOTOROLA_RADIO_REPROGRAM_RECORD:
-                return new LCMotorolaRadioReprogramRecord(message);
+            case MOTOROLA_TALKER_ALIAS_HEADER:
+                return new LCMotorolaTalkerAliasHeader(message);
+            case MOTOROLA_TALKER_ALIAS_DATA_BLOCK:
+                return new LCMotorolaTalkerAliasDataBlock(message);
             case MOTOROLA_EMERGENCY_ALARM_ACTIVATION:
                 return new LCMotorolaEmergencyAlarmActivation(message);
             case MOTOROLA_UNKNOWN:

@@ -22,12 +22,11 @@ import io.github.dsheirer.source.ISourceEventProcessor;
 import io.github.dsheirer.source.InvalidFrequencyException;
 import io.github.dsheirer.source.SourceEvent;
 import io.github.dsheirer.source.SourceException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class FrequencyController
 {
@@ -281,18 +280,21 @@ public class FrequencyController
      */
     public void addSourceEventProcessor(ISourceEventProcessor processor)
     {
-        mTunable.getLock().lock();
+        if(mTunable != null)
+        {
+            mTunable.getLock().lock();
 
-        try
-        {
-            if(!mProcessors.contains(processor))
+            try
             {
-                mProcessors.add(processor);
+                if(!mProcessors.contains(processor))
+                {
+                    mProcessors.add(processor);
+                }
             }
-        }
-        finally
-        {
-            mTunable.getLock().unlock();
+            finally
+            {
+                mTunable.getLock().unlock();
+            }
         }
     }
 
@@ -301,15 +303,18 @@ public class FrequencyController
      */
     public void removeSourceEventProcessor(ISourceEventProcessor processor)
     {
-        mTunable.getLock().lock();
+        if(mTunable != null)
+        {
+            mTunable.getLock().lock();
 
-        try
-        {
-            mProcessors.remove(processor);
-        }
-        finally
-        {
-            mTunable.getLock().unlock();
+            try
+            {
+                mProcessors.remove(processor);
+            }
+            finally
+            {
+                mTunable.getLock().unlock();
+            }
         }
     }
 

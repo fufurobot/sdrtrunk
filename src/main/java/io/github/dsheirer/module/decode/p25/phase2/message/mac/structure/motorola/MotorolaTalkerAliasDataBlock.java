@@ -19,17 +19,16 @@
 
 package io.github.dsheirer.module.decode.p25.phase2.message.mac.structure.motorola;
 
+import io.github.dsheirer.bits.BinaryMessage;
 import io.github.dsheirer.bits.CorrectedBinaryMessage;
+import io.github.dsheirer.bits.IntField;
 import io.github.dsheirer.identifier.Identifier;
 import io.github.dsheirer.module.decode.p25.phase2.message.mac.structure.MacStructureVendor;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Motorola Unknown Opcode 149 (0x95)
- *
- * This was observed at the end of a Group Regroup call sequence during HANGTIME, so it seems more of an announcement
- * type message and less as something relevant to the call.
+ * Motorola Talker Alias continuation block Opcode 149 (0x95).  This follows Motorola Talker Alias header message.
  *
  * Examples:
  * 959011 018E58B82BAB4D3B70E9A8457F9D C67
@@ -38,8 +37,13 @@ import java.util.List;
  * The opcode, vendor and length octets are consistent.  The first octet seems to be an identifier, 01, 02, etc.
  * Nothing else seems to match any of the other identifiers that were active at call time.
  */
-public class MotorolaOpcode149 extends MacStructureVendor
+public class MotorolaTalkerAliasDataBlock extends MacStructureVendor
 {
+    private static final IntField BLOCK_NUMBER = IntField.length8(OCTET_4_BIT_24);
+    private static final IntField SEQUENCE = IntField.length4(OCTET_5_BIT_32);
+    private static final int FRAGMENT_START = OCTET_5_BIT_32 + 4;
+    private static final int FRAGMENT_END = OCTET_18_BIT_136;
+
     private List<Identifier> mIdentifiers;
 
     /**
@@ -48,7 +52,7 @@ public class MotorolaOpcode149 extends MacStructureVendor
      * @param message containing the message bits
      * @param offset into the message for this structure
      */
-    public MotorolaOpcode149(CorrectedBinaryMessage message, int offset)
+    public MotorolaTalkerAliasDataBlock(CorrectedBinaryMessage message, int offset)
     {
         super(message, offset);
     }
@@ -59,9 +63,35 @@ public class MotorolaOpcode149 extends MacStructureVendor
     public String toString()
     {
         StringBuilder sb = new StringBuilder();
-        sb.append("MOTOROLA UNKNOWN OPCODE 149");
+        sb.append("MOTOROLA TALKER ALIAS DATA BLOCK:").append(getBlockNumber());
+        sb.append(" OF SEQUENCE:").append(getSequence());
+        sb.append(" FRAGMENT:").append(getFragment().toHexString());
         sb.append(" MSG:").append(getMessage().get(getOffset(), getMessage().length()).toHexString());
         return sb.toString();
+    }
+
+    /**
+     * Fragment of encoded alias.
+     */
+    public BinaryMessage getFragment()
+    {
+        return getMessage().getSubMessage(getOffset() + FRAGMENT_START, getOffset() + FRAGMENT_END);
+    }
+
+    /**
+     * Block number
+     */
+    public int getBlockNumber()
+    {
+        return getInt(BLOCK_NUMBER);
+    }
+
+    /**
+     * Sequence number that identifies the header and data blocks as all part of the same sequence.
+     */
+    public int getSequence()
+    {
+        return getInt(SEQUENCE);
     }
 
     @Override

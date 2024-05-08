@@ -19,6 +19,7 @@
 
 package io.github.dsheirer.module.decode.p25.phase1.message.lc.motorola;
 
+import io.github.dsheirer.bits.BinaryMessage;
 import io.github.dsheirer.bits.CorrectedBinaryMessage;
 import io.github.dsheirer.bits.IntField;
 import io.github.dsheirer.identifier.Identifier;
@@ -30,17 +31,19 @@ import java.util.List;
  * Motorola Link Control opcode 0x17 (23).  This is possibly a radio reprogramming record segment that is used
  * in combination with LCO 0x15.  See notes in header of LCMotorolaRadioReprogramHeader class.
  */
-public class LCMotorolaRadioReprogramRecord extends LinkControlWord
+public class LCMotorolaTalkerAliasDataBlock extends LinkControlWord
 {
-    private static final IntField RECORD_NUMBER = IntField.length8(OCTET_2_BIT_16);
-    private static final IntField SEQUENCE_NUMBER = IntField.length4(OCTET_3_BIT_24);
+    private static final IntField BLOCK_NUMBER = IntField.length8(OCTET_2_BIT_16);
+    private static final IntField SEQUENCE = IntField.length4(OCTET_3_BIT_24);
+    private static final int FRAGMENT_START = OCTET_3_BIT_24 + 4; //inclusive
+    private static final int FRAGMENT_END = OCTET_9_BIT_72; //exclusive
 
     /**
      * Constructs a Link Control Word from the binary message sequence.
      *
      * @param message
      */
-    public LCMotorolaRadioReprogramRecord(CorrectedBinaryMessage message)
+    public LCMotorolaTalkerAliasDataBlock(CorrectedBinaryMessage message)
     {
         super(message);
     }
@@ -59,27 +62,37 @@ public class LCMotorolaRadioReprogramRecord extends LinkControlWord
             sb.append(" ENCRYPTED");
         }
 
-        sb.append("MOTOROLA RADIO REPROGRAM RECORD:").append(getRecordNumber());
-        sb.append(" OF SEQUENCE:").append(getSequenceNumber());
+        sb.append("MOTOROLA TALKER ALIAS DATA BLOCK:").append(getBlockNumber());
+        sb.append(" OF SEQUENCE:").append(getSequence());
+        sb.append(" FRAGMENT:").append(getFragment().toHexString());
         sb.append(" MSG:").append(getMessage().toHexString());
         return sb.toString();
     }
 
     /**
-     * Record number
+     * Fragment of encoded alias.
      */
-    public int getRecordNumber()
+    public BinaryMessage getFragment()
     {
-        return getInt(RECORD_NUMBER);
+        return getMessage().getSubMessage(getOffset() + FRAGMENT_START, getOffset() + FRAGMENT_END);
     }
 
     /**
-     * Sequence number
+     * Block number
      */
-    public int getSequenceNumber()
+    public int getBlockNumber()
     {
-        return getInt(SEQUENCE_NUMBER);
+        return getInt(BLOCK_NUMBER);
     }
+
+    /**
+     * Sequence number that identifies the header and data blocks as all part of the same sequence.
+     */
+    public int getSequence()
+    {
+        return getInt(SEQUENCE);
+    }
+
 
     @Override
     public List<Identifier> getIdentifiers()
