@@ -207,7 +207,7 @@ public class StateMachine
     /**
      * Updates the fade timeout to current time plus the fade timeout buffer value.
      */
-    private void updateFadeTimeout()
+    public void updateFadeTimeout()
     {
         mFadeTimeout = System.currentTimeMillis() + mFadeTimeoutBufferMilliseconds;
     }

@@ -109,6 +109,10 @@ public class DecoderStateEvent
 
     public enum Event
     {
+        //Indicates the decoder is decoding a traffic channel but is not sending a state.  We use this when we
+        //want to update the fade timeout on the traffic channel to prevent timeout and teardown
+        ACTIVE_TRAFFIC_CHANNEL,
+
         //Decode state discrete events
         CONTINUATION,
         DECODE,
@@ -119,7 +123,6 @@ public class DecoderStateEvent
         NOTIFICATION_CHANNEL_ACTIVE_STATE,
         NOTIFICATION_CHANNEL_INACTIVE_STATE,
         NOTIFICATION_SOURCE_FREQUENCY,
-
 
         REQUEST_ALWAYS_UNSQUELCH,
         REQUEST_CHANGE_CALL_TIMEOUT,

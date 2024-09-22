@@ -410,6 +410,9 @@ public class SingleChannelState extends AbstractChannelState implements IDecoder
             {
                 switch(event.getEvent())
                 {
+                    case ACTIVE_TRAFFIC_CHANNEL:
+                        mStateMachine.updateFadeTimeout();
+                        break;
                     case REQUEST_ALWAYS_UNSQUELCH:
                         mSquelchController.setSquelchLock(true);
                         break;

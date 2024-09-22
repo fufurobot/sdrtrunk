@@ -43,6 +43,7 @@ import io.github.dsheirer.message.IMessage;
 import io.github.dsheirer.module.decode.DecoderType;
 import io.github.dsheirer.module.decode.event.DecodeEvent;
 import io.github.dsheirer.module.decode.event.DecodeEventType;
+import io.github.dsheirer.module.decode.event.IDecodeEvent;
 import io.github.dsheirer.module.decode.event.PlottableDecodeEvent;
 import io.github.dsheirer.module.decode.ip.IPacket;
 import io.github.dsheirer.module.decode.ip.UnknownPacket;
@@ -172,6 +173,8 @@ import io.github.dsheirer.sample.Listener;
 import io.github.dsheirer.util.PacketUtil;
 import java.util.Collections;
 import java.util.List;
+
+import net.miginfocom.layout.AC;
 import org.jdesktop.swingx.mapviewer.GeoPosition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -190,6 +193,8 @@ public class P25P1DecoderState extends DecoderState implements IChannelEventList
     private final P25P1NetworkConfigurationMonitor mNetworkConfigurationMonitor;
     private final Listener<ChannelEvent> mChannelEventListener;
     private P25TrafficChannelManager mTrafficChannelManager;
+    private static final DecoderStateEvent ACTIVE_TRAFFIC_CHANNEL_EVENT = new DecoderStateEvent(null,
+            Event.ACTIVE_TRAFFIC_CHANNEL, null);
 
     /**
      * Constructs an APCO-25 decoder state with an optional traffic channel manager.
@@ -828,6 +833,7 @@ public class P25P1DecoderState extends DecoderState implements IChannelEventList
     {
         if(message instanceof LDU1Message ldu1)
         {
+            broadcast(ACTIVE_TRAFFIC_CHANNEL_EVENT);
             LinkControlWord lcw = ldu1.getLinkControlWord();
 
             if(lcw != null && lcw.isValid())
@@ -858,6 +864,7 @@ public class P25P1DecoderState extends DecoderState implements IChannelEventList
             }
             else
             {
+                broadcast(ACTIVE_TRAFFIC_CHANNEL_EVENT);
                 mTrafficChannelManager.processP1CurrentUser(getCurrentFrequency(), null, message.getTimestamp());
             }
         }
@@ -901,6 +908,10 @@ public class P25P1DecoderState extends DecoderState implements IChannelEventList
                 }
 
                 processLC(lcw, message.getTimestamp(), true);
+            }
+            else
+            {
+                broadcast(ACTIVE_TRAFFIC_CHANNEL_EVENT);
             }
         }
     }
