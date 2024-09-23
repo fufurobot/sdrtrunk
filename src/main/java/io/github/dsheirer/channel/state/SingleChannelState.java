@@ -40,6 +40,8 @@ import io.github.dsheirer.identifier.decoder.ChannelStateIdentifier;
 import io.github.dsheirer.module.decode.config.DecodeConfiguration;
 import io.github.dsheirer.module.decode.config.WithCallTimeout;
 import io.github.dsheirer.module.decode.event.IDecodeEvent;
+import io.github.dsheirer.module.log.ForensicEventLogger;
+import io.github.dsheirer.preference.UserPreferences;
 import io.github.dsheirer.sample.Listener;
 import io.github.dsheirer.source.ISourceEventListener;
 import io.github.dsheirer.source.SourceEvent;
@@ -49,6 +51,7 @@ import io.github.dsheirer.source.config.SourceConfigTunerMultipleFrequency;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.nio.file.Path;
 import java.util.Collections;
 import java.util.List;
 
@@ -95,8 +98,9 @@ public class SingleChannelState extends AbstractChannelState implements IDecoder
     private StateMachine mStateMachine = new StateMachine(0, State.SINGLE_CHANNEL_ACTIVE_STATES);
     private StateMonitoringSquelchController mSquelchController = new StateMonitoringSquelchController(0);
     private DecoderStateNotificationEventCache mStateNotificationCache = new DecoderStateNotificationEventCache();
+    private ForensicEventLogger mForensicEventLogger;
 
-    public SingleChannelState(Channel channel, AliasModel aliasModel)
+    public SingleChannelState(Channel channel, AliasModel aliasModel, Path logDirectory)
     {
         super(channel);
         mChannelMetadata = new ChannelMetadata(aliasModel);
@@ -109,6 +113,14 @@ public class SingleChannelState extends AbstractChannelState implements IDecoder
         mStateMachine.setEndTimeoutBufferMilliseconds(RESET_TIMEOUT_DELAY);
 
         configureChannelType(channel);
+
+        long frequency = 0;
+        if(channel.getSourceConfiguration() instanceof SourceConfigTuner sct)
+        {
+            frequency = sct.getFrequency();
+        }
+
+        mForensicEventLogger = new ForensicEventLogger(logDirectory, "traffic_channel_forensics", frequency);
     }
 
     /**
@@ -178,7 +190,10 @@ public class SingleChannelState extends AbstractChannelState implements IDecoder
     @Override
     protected void checkState()
     {
-        mStateMachine.checkState();
+        if(mStateMachine.checkState())
+        {
+            mForensicEventLogger.receive(mStateMachine.getStatus() + " checkState caused change to FADE or TEARDOWN via timeout/expiry");
+        }
     }
 
     @Override
@@ -289,6 +304,9 @@ public class SingleChannelState extends AbstractChannelState implements IDecoder
     @Override
     public void start()
     {
+        mForensicEventLogger.start();
+        mForensicEventLogger.receive("Starting - " + mStateMachine.getStatus());
+
         mIdentifierCollection.broadcastIdentifiers();
 
         if(getChannel().isTrafficChannel())
@@ -301,6 +319,8 @@ public class SingleChannelState extends AbstractChannelState implements IDecoder
     public void stop()
     {
         mSquelchController.setSquelchLock(false);
+        mForensicEventLogger.receive("Stopping - " + mStateMachine.getStatus());
+        mForensicEventLogger.stop();
     }
 
     @Override
@@ -377,6 +397,7 @@ public class SingleChannelState extends AbstractChannelState implements IDecoder
                 case NOTIFICATION_FREQUENCY_CHANGE:
                     //Rebroadcast source frequency change events for the decoder(s) to process
                     long frequency = sourceEvent.getValue().longValue();
+                    mForensicEventLogger.receive("source event - notification frequency change - frequency [" + frequency + "]");
                     broadcast(new DecoderStateEvent(this, Event.NOTIFICATION_SOURCE_FREQUENCY, mStateMachine.getState(), frequency));
 
                     //Create a new frequency configuration identifier so that downstream consumers receive the change
@@ -388,6 +409,7 @@ public class SingleChannelState extends AbstractChannelState implements IDecoder
                 case NOTIFICATION_MEASURED_FREQUENCY_ERROR:
                     //Rebroadcast frequency error measurements to external listener if we're currently
                     //in an active (ie sync locked) state.
+                    mForensicEventLogger.receive("source event - notification frequency error change - frequency [" + sourceEvent.getValue() + "]");
                     if(State.SINGLE_CHANNEL_ACTIVE_STATES.contains(mStateMachine.getState()))
                     {
                         broadcast(SourceEvent.frequencyErrorMeasurementSyncLocked(sourceEvent.getValue().longValue(),
@@ -411,12 +433,14 @@ public class SingleChannelState extends AbstractChannelState implements IDecoder
                 switch(event.getEvent())
                 {
                     case ACTIVE_TRAFFIC_CHANNEL:
+                        mForensicEventLogger.receive(mStateMachine.getStatus() + " active traffic channel - updating fade timeout");
                         mStateMachine.updateFadeTimeout();
                         break;
                     case REQUEST_ALWAYS_UNSQUELCH:
                         mSquelchController.setSquelchLock(true);
                         break;
                     case REQUEST_CHANGE_CALL_TIMEOUT:
+                        mForensicEventLogger.receive(mStateMachine.getStatus() + " changing channel timeout from event: " + event);
                         if(event instanceof ChangeChannelTimeoutEvent)
                         {
                             ChangeChannelTimeoutEvent timeout = (ChangeChannelTimeoutEvent)event;
@@ -425,6 +449,7 @@ public class SingleChannelState extends AbstractChannelState implements IDecoder
                     case CONTINUATION:
                     case DECODE:
                     case START:
+                        mForensicEventLogger.receive(mStateMachine.getStatus() + " update state event: " + event);
                         if(State.SINGLE_CHANNEL_ACTIVE_STATES.contains(event.getState()))
                         {
                             mStateMachine.setState(event.getState());
@@ -434,6 +459,7 @@ public class SingleChannelState extends AbstractChannelState implements IDecoder
                         }
                         break;
                     case END:
+                        mForensicEventLogger.receive(mStateMachine.getStatus() + " end event: " + event);
                         if(getChannel().isTrafficChannel())
                         {
                             mStateMachine.setState(State.TEARDOWN);

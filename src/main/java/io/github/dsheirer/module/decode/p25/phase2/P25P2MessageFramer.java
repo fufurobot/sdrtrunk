@@ -227,7 +227,7 @@ public class P25P2MessageFramer implements Listener<Dibit>
 //        aliasList.addAlias(alias);
         AudioRecordingManager recordingManager = new AudioRecordingManager(userPreferences);
         recordingManager.start();
-        ProcessingChain processingChain = new ProcessingChain(channel, new AliasModel());
+        ProcessingChain processingChain = new ProcessingChain(channel, new AliasModel(), userPreferences.getDirectoryPreference().getDirectoryRecording());
 
         processingChain.addAudioSegmentListener(recordingManager);
         P25TrafficChannelManager trafficChannelManager = new P25TrafficChannelManager(channel);

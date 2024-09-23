@@ -73,6 +73,7 @@ import io.github.dsheirer.source.heartbeat.Heartbeat;
 import io.github.dsheirer.source.heartbeat.IHeartbeatListener;
 import io.github.dsheirer.source.heartbeat.IHeartbeatProvider;
 import java.nio.ByteBuffer;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -133,13 +134,13 @@ public class ProcessingChain implements Listener<ChannelEvent>
      * @param channel with configuration details for this processing chain
      * @param aliasModel for looking up aliases
      */
-    public ProcessingChain(Channel channel, AliasModel aliasModel)
+    public ProcessingChain(Channel channel, AliasModel aliasModel, Path logDirectory)
     {
         mEventBus = new EventBus("Processing Chain Event Bus - Channel: " + channel.getName());
 
         if(channel.getDecodeConfiguration().getTimeslotCount() == 1)
         {
-            mChannelState = new SingleChannelState(channel, aliasModel);
+            mChannelState = new SingleChannelState(channel, aliasModel, logDirectory);
         }
         else
         {

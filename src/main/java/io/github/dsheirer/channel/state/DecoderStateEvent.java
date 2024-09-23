@@ -73,7 +73,7 @@ public class DecoderStateEvent
     {
         StringBuilder sb = new StringBuilder();
 
-        sb.append("Decoder State Event - source[").append(mSource != null ? mSource.getClass() : "null")
+        sb.append("Decoder State Event - source[").append(mSource != null ? mSource.getClass().getName() : "null")
                 .append("] event[").append(mEvent)
                 .append("] state[").append(mState)
                 .append("] timeslot[").append(mTimeslot)

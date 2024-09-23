@@ -60,6 +60,12 @@ public class StateMachine
         mActiveStates = activeStates;
     }
 
+    public String getStatus()
+    {
+        return "State [" + mState + "] Fade/Buffer [" + mFadeTimeout + "/" + mFadeTimeoutBufferMilliseconds +
+                "] End/Buffer [" + mEndTimeout + "/" + mEndTimeoutBufferMilliseconds + "]";
+    }
+
     /**
      * Adds a state change listener
      * @param listener to receive state change events
@@ -96,16 +102,20 @@ public class StateMachine
     /**
      * Checks the state and transitions to FADE or TEARDOWN if timers have expired
      */
-    public void checkState()
+    public boolean checkState()
     {
         if(mActiveStates.contains(mState) && mFadeTimeout <= System.currentTimeMillis())
         {
             setState(State.FADE);
+            return true;
         }
         else if(mState == State.FADE && mEndTimeout <= System.currentTimeMillis())
         {
             setState(State.TEARDOWN);
+            return true;
         }
+
+        return false;
     }
 
     /**

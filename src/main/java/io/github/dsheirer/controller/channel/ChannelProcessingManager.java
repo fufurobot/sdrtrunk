@@ -406,7 +406,7 @@ public class ChannelProcessingManager implements Listener<ChannelEvent>
             throw new ChannelException("No Tuner Available");
         }
 
-        ProcessingChain processingChain = new ProcessingChain(channel, mAliasModel);
+        ProcessingChain processingChain = new ProcessingChain(channel, mAliasModel, mUserPreferences.getDirectoryPreference().getDirectoryRecording());
 
         //Certain decoders aggregate the decode events in the parent channel that also includes any events produced
         //by the traffic channels.  Establish listener registration depending on if this channel is a traffic channel
