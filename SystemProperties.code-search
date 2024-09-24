@@ -1,0 +1,468 @@
+# Query: SystemProperties
+# ContextLines: 1
+
+161 results - 22 files
+
+sdrtrunk/error_history.log:
+  149  warning: using incubating module(s): jdk.incubator.vector
+  150: /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/properties/SystemProperties.java:21: error: cannot find symbol
+  151  import io.github.dsheirer.gui.SDRTrunk;
+
+  154    location: package io.github.dsheirer.gui
+  155: /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/properties/SystemProperties.java:206: error: cannot find symbol
+  156              Manifest manifest = getManifest(SDRTrunk.class);
+
+  158    symbol:   class SDRTrunk
+  159:   location: class SystemProperties
+  160  Note: /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/settings/Settings.java uses or overrides a deprecated API.
+
+  183  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/icon/IconModel.java:25: error: package io.github.dsheirer.properties does not exist
+  184: import io.github.dsheirer.properties.SystemProperties;
+  185                                      ^
+  186  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/audio/broadcast/BroadcastModel.java:25: error: package io.github.dsheirer.properties does not exist
+  187: import io.github.dsheirer.properties.SystemProperties;
+  188                                      ^
+  189  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/settings/SettingsManager.java:26: error: package io.github.dsheirer.properties does not exist
+  190: import io.github.dsheirer.properties.SystemProperties;
+  191                                      ^
+  192  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/spectrum/ComplexDftProcessor.java:25: error: package io.github.dsheirer.properties does not exist
+  193: import io.github.dsheirer.properties.SystemProperties;
+  194                                      ^
+  195  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/source/tuner/recording/AddRecordingTunerDialog.java:23: error: package io.github.dsheirer.properties does not exist
+  196: import io.github.dsheirer.properties.SystemProperties;
+  197                                      ^
+  198  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/source/tuner/ui/TunerEditor.java:23: error: package io.github.dsheirer.properties does not exist
+  199: import io.github.dsheirer.properties.SystemProperties;
+  200                                      ^
+  201  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/source/tuner/ui/TunerSpectralDisplayManager.java:22: error: package io.github.dsheirer.properties does not exist
+  202: import io.github.dsheirer.properties.SystemProperties;
+  203                                      ^
+  204  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/spectrum/SpectralDisplayPanel.java:31: error: package io.github.dsheirer.properties does not exist
+  205: import io.github.dsheirer.properties.SystemProperties;
+  206                                      ^
+  207  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/audio/playback/AudioChannelPanel.java:37: error: package io.github.dsheirer.properties does not exist
+  208: import io.github.dsheirer.properties.SystemProperties;
+  209                                      ^
+  210  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/audio/broadcast/shoutcast/v2/ShoutcastV2AudioStreamingBroadcaster.java:50: error: package io.github.dsheirer.properties does not exist
+  211: import io.github.dsheirer.properties.SystemProperties;
+  212                                      ^
+  213  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/audio/broadcast/icecast/IcecastTCPAudioBroadcaster.java:28: error: package io.github.dsheirer.properties does not exist
+  214: import io.github.dsheirer.properties.SystemProperties;
+  215                                      ^
+  216  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/audio/broadcast/icecast/IcecastBroadcastMetadataUpdater.java:33: error: package io.github.dsheirer.properties does not exist
+  217: import io.github.dsheirer.properties.SystemProperties;
+  218                                      ^
+  219  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/audio/broadcast/icecast/IcecastHTTPAudioBroadcaster.java:27: error: package io.github.dsheirer.properties does not exist
+  220: import io.github.dsheirer.properties.SystemProperties;
+  221                                      ^
+  222  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/record/wave/AudioMetadataUtils.java:37: error: package io.github.dsheirer.properties does not exist
+  223: import io.github.dsheirer.properties.SystemProperties;
+  224                                      ^
+  225  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/spectrum/ShowTunerMenuItem.java:21: error: package io.github.dsheirer.properties does not exist
+  226: import io.github.dsheirer.properties.SystemProperties;
+  227                                      ^
+  228  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/spectrum/ClearTunerMenuItem.java:18: error: package io.github.dsheirer.properties does not exist
+  229: import io.github.dsheirer.properties.SystemProperties;
+  230                                      ^
+  231  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/icon/IconModel.java:259: error: cannot find symbol
+  232:             SystemProperties props = SystemProperties.getInstance();
+  233              ^
+  234:   symbol:   class SystemProperties
+  235    location: class IconModel
+  236  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/icon/IconModel.java:259: error: cannot find symbol
+  237:             SystemProperties props = SystemProperties.getInstance();
+  238                                       ^
+  239:   symbol:   variable SystemProperties
+  240    location: class IconModel
+  241  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/audio/broadcast/BroadcastModel.java:700: error: cannot find symbol
+  242:                     Path path = SystemProperties.getInstance().getApplicationFolder(BroadcastModel.TEMPORARY_STREAM_DIRECTORY);
+  243                                  ^
+  244:   symbol: variable SystemProperties
+  245  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/settings/SettingsManager.java:70: error: cannot find symbol
+  246:         SystemProperties props = SystemProperties.getInstance();
+  247          ^
+  248:   symbol:   class SystemProperties
+  249    location: class SettingsManager
+  250  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/settings/SettingsManager.java:70: error: cannot find symbol
+  251:         SystemProperties props = SystemProperties.getInstance();
+  252                                   ^
+  253:   symbol:   variable SystemProperties
+  254    location: class SettingsManager
+  255  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/settings/SettingsManager.java:231: error: cannot find symbol
+  256:         SystemProperties props = SystemProperties.getInstance();
+  257          ^
+  258:   symbol:   class SystemProperties
+  259    location: class SettingsManager
+  260  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/settings/SettingsManager.java:231: error: cannot find symbol
+  261:         SystemProperties props = SystemProperties.getInstance();
+  262                                   ^
+  263:   symbol:   variable SystemProperties
+  264    location: class SettingsManager
+  265  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/spectrum/ComplexDftProcessor.java:64: error: cannot find symbol
+  266:         mFrameRate = SystemProperties.getInstance().get(FRAME_RATE_PROPERTY, 20);
+  267                       ^
+  268:   symbol:   variable SystemProperties
+  269    location: class ComplexDftProcessor<T>
+
+  272  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/spectrum/ComplexDftProcessor.java:121: error: cannot find symbol
+  273:         SystemProperties.getInstance().set(FRAME_RATE_PROPERTY, mFrameRate);
+  274          ^
+  275:   symbol:   variable SystemProperties
+  276    location: class ComplexDftProcessor<T>
+
+  279  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/source/tuner/recording/AddRecordingTunerDialog.java:88: error: cannot find symbol
+  280:             String lastBrowsedDirectory = SystemProperties.getInstance().get(LAST_FILE_BROWSE_LOCATION_KEY, "");
+  281                                            ^
+  282:   symbol:   variable SystemProperties
+  283    location: class AddRecordingTunerDialog
+  284  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/source/tuner/recording/AddRecordingTunerDialog.java:124: error: cannot find symbol
+  285:                 SystemProperties.getInstance().set(LAST_FILE_BROWSE_LOCATION_KEY, lastDirectory.getAbsolutePath());
+  286                  ^
+  287:   symbol:   variable SystemProperties
+  288    location: class AddRecordingTunerDialog
+  289  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/source/tuner/ui/TunerEditor.java:325: error: cannot find symbol
+  290:                     SystemProperties.getInstance().set(SpectralDisplayPanel.SPECTRAL_DISPLAY_ENABLED, true);
+  291                      ^
+  292:   symbol:   variable SystemProperties
+  293    location: class TunerEditor<T,C>
+
+  297  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/source/tuner/ui/TunerSpectralDisplayManager.java:70: error: cannot find symbol
+  298:         if(!SystemProperties.getInstance().get(SpectralDisplayPanel.SPECTRAL_DISPLAY_ENABLED, true))
+  299              ^
+  300:   symbol:   variable SystemProperties
+  301    location: class TunerSpectralDisplayManager
+  302  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/source/tuner/ui/TunerSpectralDisplayManager.java:99: error: cannot find symbol
+  303:                 if(SystemProperties.getInstance().get(SpectralDisplayPanel.SPECTRAL_DISPLAY_ENABLED, true))
+  304                     ^
+  305:   symbol:   variable SystemProperties
+  306    location: class TunerSpectralDisplayManager
+  307  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/spectrum/SpectralDisplayPanel.java:142: error: cannot find symbol
+  308:         SystemProperties properties = SystemProperties.getInstance();
+  309          ^
+  310:   symbol:   class SystemProperties
+  311    location: class SpectralDisplayPanel
+  312  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/spectrum/SpectralDisplayPanel.java:142: error: cannot find symbol
+  313:         SystemProperties properties = SystemProperties.getInstance();
+  314                                        ^
+  315:   symbol:   variable SystemProperties
+  316    location: class SpectralDisplayPanel
+  317  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/spectrum/SpectralDisplayPanel.java:205: error: cannot find symbol
+  318:             SystemProperties.getInstance().set(FFT_SIZE_PROPERTY, size.name());
+  319              ^
+  320:   symbol:   variable SystemProperties
+  321    location: class SpectralDisplayPanel
+  322  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/audio/playback/AudioChannelPanel.java:108: error: cannot find symbol
+  323:         mBackgroundColor = SystemProperties.getInstance().get(PROPERTY_COLOR_BACKGROUND, Color.BLACK);
+  324                             ^
+  325:   symbol:   variable SystemProperties
+  326    location: class AudioChannelPanel
+  327  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/audio/playback/AudioChannelPanel.java:109: error: cannot find symbol
+  328:         mLabelColor = SystemProperties.getInstance().get(PROPERTY_COLOR_LABEL, Color.LIGHT_GRAY);
+  329                        ^
+  330:   symbol:   variable SystemProperties
+  331    location: class AudioChannelPanel
+  332  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/audio/playback/AudioChannelPanel.java:110: error: cannot find symbol
+  333:         mMutedColor = SystemProperties.getInstance().get(PROPERTY_COLOR_MUTED, Color.RED);
+  334                        ^
+  335:   symbol:   variable SystemProperties
+  336    location: class AudioChannelPanel
+  337  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/audio/playback/AudioChannelPanel.java:111: error: cannot find symbol
+  338:         mValueColor = SystemProperties.getInstance().get(PROPERTY_COLOR_VALUE, Color.GREEN);
+  339                        ^
+  340:   symbol:   variable SystemProperties
+  341    location: class AudioChannelPanel
+  342  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/audio/broadcast/shoutcast/v2/ShoutcastV2AudioStreamingBroadcaster.java:269: error: cannot find symbol
+  343:             sb.append(UltravoxMetadata.BROADCAST_CLIENT_APPLICATION.asXML(SystemProperties.getInstance().getApplicationName()));
+  344                                                                            ^
+  345:   symbol:   variable SystemProperties
+  346    location: class ShoutcastV2AudioStreamingBroadcaster
+  347  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/audio/broadcast/icecast/IcecastTCPAudioBroadcaster.java:244: error: cannot find symbol
+  348:                 .append(SystemProperties.getInstance().getApplicationName()).append(TERMINATOR);
+  349                          ^
+  350:   symbol:   variable SystemProperties
+  351    location: class IcecastTCPAudioBroadcaster.IcecastTCPIOHandler
+  352  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/audio/broadcast/icecast/IcecastBroadcastMetadataUpdater.java:118: error: cannot find symbol
+  353:                             .header(IcecastHeader.USER_AGENT.getValue(), SystemProperties.getInstance().getApplicationName())
+  354                                                                           ^
+  355:   symbol: variable SystemProperties
+  356  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/audio/broadcast/icecast/IcecastHTTPAudioBroadcaster.java:237: error: cannot find symbol
+  357:                 mHTTPHeaders.put(IcecastHeader.USER_AGENT.getValue(), SystemProperties.getInstance().getApplicationName());
+  358                                                                        ^
+  359:   symbol:   variable SystemProperties
+  360    location: class IcecastHTTPAudioBroadcaster.IcecastHTTPIOHandler
+  361  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/record/wave/AudioMetadataUtils.java:83: error: cannot find symbol
+  362:         audioMetadata.put(AudioMetadata.COMPOSER, SystemProperties.getInstance().getApplicationName());
+  363                                                    ^
+  364:   symbol:   variable SystemProperties
+  365    location: class AudioMetadataUtils
+  366  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/spectrum/ShowTunerMenuItem.java:52: error: cannot find symbol
+  367:                         SystemProperties properties = SystemProperties.getInstance();
+  368                          ^
+  369:   symbol: class SystemProperties
+  370  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/spectrum/ShowTunerMenuItem.java:52: error: cannot find symbol
+  371:                         SystemProperties properties = SystemProperties.getInstance();
+  372                                                        ^
+  373:   symbol: variable SystemProperties
+  374  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/spectrum/ClearTunerMenuItem.java:39: error: cannot find symbol
+  375:                 SystemProperties properties = SystemProperties.getInstance();
+  376                  ^
+  377:   symbol: class SystemProperties
+  378  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/spectrum/ClearTunerMenuItem.java:39: error: cannot find symbol
+  379:                 SystemProperties properties = SystemProperties.getInstance();
+  380                                                ^
+  381:   symbol: variable SystemProperties
+  382  Note: /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/settings/Settings.java uses or overrides a deprecated API.
+
+sdrtrunk/tunerManager-dependency-chain.log:
+   7  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/source/tuner/ui/TunerEditor.java:23: error: package io.github.dsheirer.properties does not exist
+   8: import io.github.dsheirer.properties.SystemProperties;
+   9: /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/properties/SystemProperties.java:21: error: cannot find symbol
+  10  import io.github.dsheirer.gui.SDRTrunk;
+
+  40  /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/record/wave/AudioMetadataUtils.java:37: error: package io.github.dsheirer.properties does not exist
+  41: import io.github.dsheirer.properties.SystemProperties;
+  42: /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/properties/SystemProperties.java:21: error: cannot find symbol
+  43  import io.github.dsheirer.gui.SDRTrunk;
+
+sdrtrunk/src/main/java/io/github/dsheirer/audio/broadcast/BroadcastModel.java:
+   24  import io.github.dsheirer.preference.UserPreferences;
+   25: import io.github.dsheirer.properties.SystemProperties;
+   26  import io.github.dsheirer.sample.Broadcaster;
+
+  699                  {
+  700:                     Path path = SystemProperties.getInstance().getApplicationFolder(BroadcastModel.TEMPORARY_STREAM_DIRECTORY);
+  701  
+
+sdrtrunk/src/main/java/io/github/dsheirer/audio/broadcast/icecast/IcecastBroadcastMetadataUpdater.java:
+   32  import io.github.dsheirer.identifier.Role;
+   33: import io.github.dsheirer.properties.SystemProperties;
+   34  import io.github.dsheirer.util.ThreadPool;
+
+  117                              .header(IcecastHeader.AUTHORIZATION.getValue(), mIcecastConfiguration.getBase64EncodedCredentials())
+  118:                             .header(IcecastHeader.USER_AGENT.getValue(), SystemProperties.getInstance().getApplicationName())
+  119                              .GET()
+
+sdrtrunk/src/main/java/io/github/dsheirer/audio/broadcast/icecast/IcecastHTTPAudioBroadcaster.java:
+   26  import io.github.dsheirer.identifier.IdentifierCollection;
+   27: import io.github.dsheirer.properties.SystemProperties;
+   28  import io.github.dsheirer.util.ThreadPool;
+
+  236                  mHTTPHeaders.put(IcecastHeader.CONTENT_TYPE.getValue(), getConfiguration().getBroadcastFormat().getValue());
+  237:                 mHTTPHeaders.put(IcecastHeader.USER_AGENT.getValue(), SystemProperties.getInstance().getApplicationName());
+  238                  mHTTPHeaders.put(IcecastHeader.AUTHORIZATION.getValue(), getConfiguration().getBase64EncodedCredentials());
+
+sdrtrunk/src/main/java/io/github/dsheirer/audio/broadcast/icecast/IcecastMetadata.java:
+  33  import io.github.dsheirer.identifier.Role;
+  34: import io.github.dsheirer.properties.SystemProperties;
+  35  import io.github.dsheirer.util.ThreadPool;
+
+sdrtrunk/src/main/java/io/github/dsheirer/audio/broadcast/icecast/IcecastTCPAudioBroadcaster.java:
+   27  import io.github.dsheirer.identifier.IdentifierCollection;
+   28: import io.github.dsheirer.properties.SystemProperties;
+   29  import io.github.dsheirer.util.ThreadPool;
+
+  243              sb.append(IcecastHeader.USER_AGENT.getValue()).append(SEPARATOR)
+  244:                 .append(SystemProperties.getInstance().getApplicationName()).append(TERMINATOR);
+  245              sb.append(IcecastHeader.CONTENT_TYPE.getValue()).append(SEPARATOR)
+
+sdrtrunk/src/main/java/io/github/dsheirer/audio/broadcast/shoutcast/v2/ShoutcastV2AudioStreamingBroadcaster.java:
+   49  import io.github.dsheirer.identifier.Role;
+   50: import io.github.dsheirer.properties.SystemProperties;
+   51  import io.github.dsheirer.util.ThreadPool;
+
+  268  
+  269:             sb.append(UltravoxMetadata.BROADCAST_CLIENT_APPLICATION.asXML(SystemProperties.getInstance().getApplicationName()));
+  270  
+
+sdrtrunk/src/main/java/io/github/dsheirer/audio/playback/AudioChannelPanel.java:
+   36  import io.github.dsheirer.preference.identifier.TalkgroupFormatPreference;
+   37: import io.github.dsheirer.properties.SystemProperties;
+   38  import io.github.dsheirer.sample.Listener;
+
+  107  
+  108:         mBackgroundColor = SystemProperties.getInstance().get(PROPERTY_COLOR_BACKGROUND, Color.BLACK);
+  109:         mLabelColor = SystemProperties.getInstance().get(PROPERTY_COLOR_LABEL, Color.LIGHT_GRAY);
+  110:         mMutedColor = SystemProperties.getInstance().get(PROPERTY_COLOR_MUTED, Color.RED);
+  111:         mValueColor = SystemProperties.getInstance().get(PROPERTY_COLOR_VALUE, Color.GREEN);
+  112  
+
+sdrtrunk/src/main/java/io/github/dsheirer/gui/SDRTrunk.java:
+   47  import io.github.dsheirer.preference.UserPreferences;
+   48: import io.github.dsheirer.properties.SystemProperties;
+   49  import io.github.dsheirer.record.AudioRecordingManager;
+
+  171          //Log current properties setting
+  172:         SystemProperties.getInstance().logCurrentSettings();
+  173  
+
+  326           */
+  327:         mTitle = SystemProperties.getInstance().getApplicationName();
+  328          mMainGui.setTitle(mTitle);
+
+  377  
+  378:         mBroadcastStatusVisible = SystemProperties.getInstance().get(PROPERTY_BROADCAST_STATUS_VISIBLE, false);
+  379  
+
+  558  
+  559:         SystemProperties.getInstance().set(PROPERTY_BROADCAST_STATUS_VISIBLE, mBroadcastStatusVisible);
+  560      }
+
+  588          {
+  589:             SystemProperties.getInstance().load(propsPath);
+  590          }
+
+sdrtrunk/src/main/java/io/github/dsheirer/icon/IconModel.java:
+   24  import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+   25: import io.github.dsheirer.properties.SystemProperties;
+   26  import io.github.dsheirer.util.ThreadPool;
+
+  258          {
+  259:             SystemProperties props = SystemProperties.getInstance();
+  260  
+
+sdrtrunk/src/main/java/io/github/dsheirer/properties/SystemProperties.java:
+   41  /**
+   42:  * SystemProperties - provides an isolated instance of properties for the application
+   43   */
+   44: public class SystemProperties
+   45  {
+   46:     private final static Logger mLog = LoggerFactory.getLogger(SystemProperties.class);
+   47  
+
+   51  
+   52:     private static SystemProperties INSTANCE;
+   53      private static Properties mProperties;
+
+   57  
+   58:     private SystemProperties()
+   59      {
+
+   67       */
+   68:     public static SystemProperties getInstance()
+   69      {
+
+   71          {
+   72:             INSTANCE = new SystemProperties();
+   73          }
+
+  150              {
+  151:                 mLog.error("SystemProperties - exception while creating app folder [" + folder + "]", e);
+  152              }
+
+  161          {
+  162:             mLog.info("SystemProperties - no properties file loaded - using defaults");
+  163          }
+
+  165          {
+  166:             mLog.info("SystemProperties - application properties loaded [" + mPropertiesPath.toString() + "]");
+  167          }
+
+  191  
+  192:         mLog.info("SystemProperties - loaded [" + propertiesPath.toString() + "]");
+  193      }
+
+sdrtrunk/src/main/java/io/github/dsheirer/record/wave/AudioMetadataUtils.java:
+  36  import io.github.dsheirer.identifier.decoder.DecoderLogicalChannelNameIdentifier;
+  37: import io.github.dsheirer.properties.SystemProperties;
+  38  import org.slf4j.Logger;
+
+  82          StringBuilder comments = new StringBuilder();
+  83:         audioMetadata.put(AudioMetadata.COMPOSER, SystemProperties.getInstance().getApplicationName());
+  84          String dateCreated = SDF.format(new Date(System.currentTimeMillis()));
+
+sdrtrunk/src/main/java/io/github/dsheirer/settings/SettingsManager.java:
+   25  import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+   26: import io.github.dsheirer.properties.SystemProperties;
+   27  import io.github.dsheirer.sample.Listener;
+
+   69      {
+   70:         SystemProperties props = SystemProperties.getInstance();
+   71  
+
+  230      {
+  231:         SystemProperties props = SystemProperties.getInstance();
+  232  
+
+sdrtrunk/src/main/java/io/github/dsheirer/source/tuner/recording/AddRecordingTunerDialog.java:
+   22  import io.github.dsheirer.preference.UserPreferences;
+   23: import io.github.dsheirer.properties.SystemProperties;
+   24  import io.github.dsheirer.source.tuner.configuration.TunerConfigurationManager;
+
+   87              JFileChooser fileChooser = new JFileChooser();
+   88:             String lastBrowsedDirectory = SystemProperties.getInstance().get(LAST_FILE_BROWSE_LOCATION_KEY, "");
+   89  
+
+  123              {
+  124:                 SystemProperties.getInstance().set(LAST_FILE_BROWSE_LOCATION_KEY, lastDirectory.getAbsolutePath());
+  125              }
+
+sdrtrunk/src/main/java/io/github/dsheirer/source/tuner/ui/DiscoveredTunerModel.java:
+  307  //TODO: move this out of the model ... is not part of the scope of this model
+  308: //        SystemProperties properties = SystemProperties.getInstance();
+  309  //        boolean enabled = properties.get(SpectralDisplayPanel.SPECTRAL_DISPLAY_ENABLED, true);
+
+sdrtrunk/src/main/java/io/github/dsheirer/source/tuner/ui/TunerEditor.java:
+   22  import io.github.dsheirer.preference.UserPreferences;
+   23: import io.github.dsheirer.properties.SystemProperties;
+   24  import io.github.dsheirer.record.wave.IRecordingStatusListener;
+
+  324                  {
+  325:                     SystemProperties.getInstance().set(SpectralDisplayPanel.SPECTRAL_DISPLAY_ENABLED, true);
+  326  
+
+sdrtrunk/src/main/java/io/github/dsheirer/source/tuner/ui/TunerSpectralDisplayManager.java:
+  21  import io.github.dsheirer.playlist.PlaylistManager;
+  22: import io.github.dsheirer.properties.SystemProperties;
+  23  import io.github.dsheirer.sample.Listener;
+
+  69      {
+  70:         if(!SystemProperties.getInstance().get(SpectralDisplayPanel.SPECTRAL_DISPLAY_ENABLED, true))
+  71          {
+
+  98              case REQUEST_MAIN_SPECTRAL_DISPLAY:
+  99:                 if(SystemProperties.getInstance().get(SpectralDisplayPanel.SPECTRAL_DISPLAY_ENABLED, true))
+  100                  {
+
+sdrtrunk/src/main/java/io/github/dsheirer/spectrum/ClearTunerMenuItem.java:
+  17  
+  18: import io.github.dsheirer.properties.SystemProperties;
+  19  
+
+  38              {
+  39:                 SystemProperties properties = SystemProperties.getInstance();
+  40                  properties.set(SpectralDisplayPanel.SPECTRAL_DISPLAY_ENABLED, false);
+
+sdrtrunk/src/main/java/io/github/dsheirer/spectrum/ComplexDftProcessor.java:
+   24  import io.github.dsheirer.dsp.window.WindowType;
+   25: import io.github.dsheirer.properties.SystemProperties;
+   26  import io.github.dsheirer.sample.Listener;
+
+   63      {
+   64:         mFrameRate = SystemProperties.getInstance().get(FRAME_RATE_PROPERTY, 20);
+   65          setWindowType(mWindowType);
+
+  120          mFrameRate = framesPerSecond;
+  121:         SystemProperties.getInstance().set(FRAME_RATE_PROPERTY, mFrameRate);
+  122          restart();
+
+sdrtrunk/src/main/java/io/github/dsheirer/spectrum/ShowTunerMenuItem.java:
+  20  
+  21: import io.github.dsheirer.properties.SystemProperties;
+  22  import io.github.dsheirer.source.tuner.Tuner;
+
+  51                      {
+  52:                         SystemProperties properties = SystemProperties.getInstance();
+  53                          properties.set(SpectralDisplayPanel.SPECTRAL_DISPLAY_ENABLED, true);
+
+sdrtrunk/src/main/java/io/github/dsheirer/spectrum/SpectralDisplayPanel.java:
+   30  import io.github.dsheirer.playlist.PlaylistManager;
+   31: import io.github.dsheirer.properties.SystemProperties;
+   32  import io.github.dsheirer.sample.Listener;
+
+  141      {
+  142:         SystemProperties properties = SystemProperties.getInstance();
+  143  
+
+  204          {
+  205:             SystemProperties.getInstance().set(FFT_SIZE_PROPERTY, size.name());
+  206          }

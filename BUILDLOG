@@ -1,0 +1,202 @@
+REMOVE eu.hansolo:charts:1.0.5
+Tue Sep 24 21:43:53 CST 2024
+warning: using incubating module(s): jdk.incubator.vector
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/chart/SampleXYChart.java:21: error: package eu.hansolo.fx.charts does not exist
+import eu.hansolo.fx.charts.ChartType;
+                           ^
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/chart/SampleXYChart.java:22: error: package eu.hansolo.fx.charts does not exist
+import eu.hansolo.fx.charts.PolarChart;
+                           ^
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/chart/SampleXYChart.java:23: error: package eu.hansolo.fx.charts does not exist
+import eu.hansolo.fx.charts.XYPane;
+                           ^
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/chart/SampleXYChart.java:24: error: package eu.hansolo.fx.charts.data does not exist
+import eu.hansolo.fx.charts.data.XYChartItem;
+                                ^
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/chart/SampleXYChart.java:25: error: package eu.hansolo.fx.charts.series does not exist
+import eu.hansolo.fx.charts.series.XYSeries;
+                                  ^
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/chart/SampleXYChart.java:36: error: cannot find symbol
+public class SampleXYChart extends PolarChart<XYChartItem> implements Listener<ComplexSamples>
+                                   ^
+  symbol: class PolarChart
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/chart/SampleXYChart.java:36: error: cannot find symbol
+public class SampleXYChart extends PolarChart<XYChartItem> implements Listener<ComplexSamples>
+                                              ^
+  symbol: class XYChartItem
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/chart/SampleXYChart.java:38: error: cannot find symbol
+    private static ObservableList<XYChartItem> sChartItemList = FXCollections.observableArrayList();
+                                  ^
+  symbol:   class XYChartItem
+  location: class SampleXYChart
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/chart/SampleXYChart.java:42: error: cannot find symbol
+        sChartItemList.add(new XYChartItem(1, 1));
+                               ^
+  symbol:   class XYChartItem
+  location: class SampleXYChart
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/chart/SampleXYChart.java:43: error: cannot find symbol
+        sChartItemList.add(new XYChartItem(-1, -1));
+                               ^
+  symbol:   class XYChartItem
+  location: class SampleXYChart
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/chart/SampleXYChart.java:56: error: cannot find symbol
+        getXYPane().setLowerBoundX(0);
+        ^
+  symbol:   method getXYPane()
+  location: class SampleXYChart
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/chart/SampleXYChart.java:57: error: cannot find symbol
+        getXYPane().setUpperBoundX(1.0);
+        ^
+  symbol:   method getXYPane()
+  location: class SampleXYChart
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/chart/SampleXYChart.java:58: error: cannot find symbol
+        getXYPane().setLowerBoundY(0);
+        ^
+  symbol:   method getXYPane()
+  location: class SampleXYChart
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/chart/SampleXYChart.java:59: error: cannot find symbol
+        getXYPane().setUpperBoundY(1.0);
+        ^
+  symbol:   method getXYPane()
+  location: class SampleXYChart
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/chart/SampleXYChart.java:76: error: cannot find symbol
+        XYSeries<XYChartItem> series = getXYPane().getListOfSeries().get(0);
+        ^
+  symbol:   class XYSeries
+  location: class SampleXYChart
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/chart/SampleXYChart.java:76: error: cannot find symbol
+        XYSeries<XYChartItem> series = getXYPane().getListOfSeries().get(0);
+                 ^
+  symbol:   class XYChartItem
+  location: class SampleXYChart
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/chart/SampleXYChart.java:76: error: cannot find symbol
+        XYSeries<XYChartItem> series = getXYPane().getListOfSeries().get(0);
+                                       ^
+  symbol:   method getXYPane()
+  location: class SampleXYChart
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/chart/SampleXYChart.java:82: error: cannot find symbol
+            series.getItems().add(new XYChartItem(sample.polarAngleDegrees(), sample.magnitude(), Color.BLUE));
+                                      ^
+  symbol:   class XYChartItem
+  location: class SampleXYChart
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/chart/SampleXYChart.java:85: error: cannot find symbol
+        refresh();
+        ^
+  symbol:   method refresh()
+  location: class SampleXYChart
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/decoder/P25Phase2HDQPSKPane.java:147: error: cannot find symbol
+            getSampleXYChart().setMaxWidth(Double.MAX_VALUE);
+                              ^
+  symbol:   method setMaxWidth(double)
+  location: class SampleXYChart
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/decoder/P25Phase2HDQPSKPane.java:151: error: incompatible types: SampleXYChart cannot be converted to Node
+            HBox.setHgrow(getSampleXYChart(), Priority.ALWAYS);
+                                          ^
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/decoder/P25Phase2HDQPSKPane.java:152: error: method addAll in interface ObservableList<E> cannot be applied to given types;
+            mDecoderChartBox.getChildren().addAll(getPLLPhaseErrorLineChart(), getPLLFrequencyLineChart(),
+                                          ^
+  required: Node[]
+  found:    PhaseLineChart,DoubleLineChart,SymbolChart,SampleXYChart
+  reason: varargs mismatch; SampleXYChart cannot be converted to Node
+  where E is a type-variable:
+    E extends Object declared in interface ObservableList
+Note: /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/decoder/P25Phase2HDQPSKPane.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+22 errors
+1 warning
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 766ms
+Tue Sep 24 21:43:54 CST 2024
+warning: using incubating module(s): jdk.incubator.vector
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/decoder/DecoderPaneFactory.java:61: error: cannot find symbol
+                return new P25Phase2HDQPSKPane();
+                           ^
+  symbol:   class P25Phase2HDQPSKPane
+  location: class DecoderPaneFactory
+1 error
+1 warning
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 740ms
+Tue Sep 24 21:43:55 CST 2024
+warning: using incubating module(s): jdk.incubator.vector
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/DemodulatorViewerFX.java:24: error: cannot find symbol
+import io.github.dsheirer.gui.instrument.decoder.DecoderPaneFactory;
+                                                ^
+  symbol:   class DecoderPaneFactory
+  location: package io.github.dsheirer.gui.instrument.decoder
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/ViewerDesktop.java:22: error: cannot find symbol
+import io.github.dsheirer.gui.instrument.decoder.DecoderPaneFactory;
+                                                ^
+  symbol:   class DecoderPaneFactory
+  location: package io.github.dsheirer.gui.instrument.decoder
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/DemodulatorViewerFX.java:178: error: cannot find symbol
+                if(DecoderPaneFactory.isSupported(decoderType))
+                   ^
+  symbol:   variable DecoderPaneFactory
+  location: class DemodulatorViewerFX
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/ViewerDesktop.java:33: error: cannot find symbol
+    private AbstractDecoderPane mDecoderPane = DecoderPaneFactory.getDefaultPane();
+                                               ^
+  symbol:   variable DecoderPaneFactory
+  location: class ViewerDesktop
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/ViewerDesktop.java:49: error: cannot find symbol
+        setDecoderPane(DecoderPaneFactory.getDecoderPane(decoderType));
+                       ^
+  symbol:   variable DecoderPaneFactory
+  location: class ViewerDesktop
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/ViewerDesktop.java:54: error: cannot find symbol
+        setDecoderPane(DecoderPaneFactory.getP25P1DecoderPane(modulation));
+                       ^
+  symbol:   variable DecoderPaneFactory
+  location: class ViewerDesktop
+/home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/ViewerDesktop.java:89: error: cannot find symbol
+            mDecoderPane = DecoderPaneFactory.getDefaultPane();
+                           ^
+  symbol:   variable DecoderPaneFactory
+  location: class ViewerDesktop
+Note: /home/fufu/workspace/java/sdrtrunk/src/main/java/io/github/dsheirer/gui/instrument/ViewerDesktop.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+7 errors
+1 warning
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 747ms
