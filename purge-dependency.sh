@@ -1,0 +1,1 @@
+while ! ./gradlew build 2>error.log; do date >> error_history.log; cat error.log | tee error_history.log | grep 'error:' | awk -F: "{ print \$1 }" | sort -u | sed s/$(pwd | sed 's/\//\\\//g')/\\./ | grep \\./ | xargs rm --verbose; done;
