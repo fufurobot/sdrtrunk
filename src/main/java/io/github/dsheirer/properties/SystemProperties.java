@@ -18,7 +18,7 @@
  ******************************************************************************/
 package io.github.dsheirer.properties;
 
-import io.github.dsheirer.gui.SDRTrunk;
+import io.github.dsheirer.gui.SDRTrunkManifest;
 import io.github.dsheirer.util.ThreadPool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -203,7 +203,7 @@ public class SystemProperties
 
             sb.append("sdrtrunk");
 
-            Manifest manifest = getManifest(SDRTrunk.class);
+            Manifest manifest = getManifest(SDRTrunkManifest.class);
 
             if(manifest != null)
             {
