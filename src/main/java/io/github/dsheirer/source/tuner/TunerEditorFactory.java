@@ -26,25 +26,34 @@ import io.github.dsheirer.source.mixer.MixerManager;
 import io.github.dsheirer.source.tuner.airspy.AirspyTuner;
 import io.github.dsheirer.source.tuner.airspy.AirspyTunerConfiguration;
 import io.github.dsheirer.source.tuner.airspy.AirspyTunerController;
+import io.github.dsheirer.source.tuner.airspy.AirspyTunerEditor;
 import io.github.dsheirer.source.tuner.configuration.TunerConfiguration;
 import io.github.dsheirer.source.tuner.fcd.FCDTuner;
 import io.github.dsheirer.source.tuner.fcd.proV1.FCD1TunerConfiguration;
 import io.github.dsheirer.source.tuner.fcd.proV1.FCD1TunerController;
+import io.github.dsheirer.source.tuner.fcd.proV1.FCD1TunerEditor;
 import io.github.dsheirer.source.tuner.fcd.proplusV2.FCD2TunerConfiguration;
 import io.github.dsheirer.source.tuner.fcd.proplusV2.FCD2TunerController;
+import io.github.dsheirer.source.tuner.fcd.proplusV2.FCD2TunerEditor;
 import io.github.dsheirer.source.tuner.hackrf.HackRFTuner;
 import io.github.dsheirer.source.tuner.hackrf.HackRFTunerConfiguration;
 import io.github.dsheirer.source.tuner.hackrf.HackRFTunerController;
+import io.github.dsheirer.source.tuner.hackrf.HackRFTunerEditor;
 import io.github.dsheirer.source.tuner.manager.DiscoveredTuner;
 import io.github.dsheirer.source.tuner.manager.TunerManager;
 import io.github.dsheirer.source.tuner.recording.RecordingTunerConfiguration;
+import io.github.dsheirer.source.tuner.recording.RecordingTunerEditor;
 import io.github.dsheirer.source.tuner.rtl.EmbeddedTuner;
 import io.github.dsheirer.source.tuner.rtl.RTL2832Tuner;
 import io.github.dsheirer.source.tuner.rtl.RTL2832TunerController;
+import io.github.dsheirer.source.tuner.rtl.RTL2832UnknownTunerEditor;
 import io.github.dsheirer.source.tuner.rtl.e4k.E4KEmbeddedTuner;
 import io.github.dsheirer.source.tuner.rtl.e4k.E4KTunerConfiguration;
+import io.github.dsheirer.source.tuner.rtl.e4k.E4KTunerEditor;
 import io.github.dsheirer.source.tuner.rtl.r820t.R820TEmbeddedTuner;
 import io.github.dsheirer.source.tuner.rtl.r820t.R820TTunerConfiguration;
+import io.github.dsheirer.source.tuner.rtl.r820t.R820TTunerEditor;
+import io.github.dsheirer.source.tuner.ui.TunerEditor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -53,7 +62,7 @@ import javax.sound.sampled.TargetDataLine;
 /**
  * Factory for creating tuners and tuner configurations
  */
-public class TunerFactory
+public class TunerEditorFactory
 {
     private static final Logger mLog = LoggerFactory.getLogger(TunerFactory.class);
 
@@ -141,6 +150,43 @@ public class TunerFactory
                 return RecordingTunerConfiguration.create();
             default:
                 throw new IllegalArgumentException("Unrecognized tuner type [" + type.name() + "]");
+        }
+    }
+
+    /**
+     * Creates a tuner editor gui for the specified tuner
+     */
+    public static TunerEditor getEditor(UserPreferences userPreferences, DiscoveredTuner discoveredTuner,
+                                        TunerManager tunerManager)
+    {
+        switch(discoveredTuner.getTunerClass())
+        {
+            case AIRSPY:
+                return new AirspyTunerEditor(userPreferences, tunerManager, discoveredTuner);
+            case FUNCUBE_DONGLE_PRO:
+                return new FCD1TunerEditor(userPreferences, tunerManager, discoveredTuner);
+            case FUNCUBE_DONGLE_PRO_PLUS:
+                return new FCD2TunerEditor(userPreferences, tunerManager, discoveredTuner);
+            case HACKRF:
+                return new HackRFTunerEditor(userPreferences, tunerManager, discoveredTuner);
+            case RTL2832:
+                if(discoveredTuner.hasTuner())
+                {
+                    switch(discoveredTuner.getTuner().getTunerType())
+                    {
+                        case ELONICS_E4000:
+                            return new E4KTunerEditor(userPreferences, tunerManager, discoveredTuner);
+                        case RAFAELMICRO_R820T:
+                            return new R820TTunerEditor(userPreferences, tunerManager, discoveredTuner);
+                    }
+                }
+                return new RTL2832UnknownTunerEditor(userPreferences, tunerManager, discoveredTuner);
+            case RECORDING_TUNER:
+                return new RecordingTunerEditor(userPreferences, tunerManager, discoveredTuner);
+            case TEST_TUNER:
+            case UNKNOWN:
+            default:
+                throw new IllegalArgumentException("Unsupported tuner class: " + discoveredTuner.getTunerClass());
         }
     }
 }
